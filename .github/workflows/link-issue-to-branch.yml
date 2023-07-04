@@ -7,7 +7,7 @@ on:
 
 jobs:
   move-issue-when-linked:
-    name: Move issues to In progress status when a branch/PR is linked
+    name: Move issues to In Progress status when a branch/PR is linked
     runs-on: ubuntu-latest
     steps:
       - uses: alex-page/github-project-automation-plus@v0.8.3
