@@ -1,18 +1,19 @@
 name: Move issues to In progress status when it is linked to a branch
 
+name: Move new issues into Project Board Column
 on:
   pull_request:
-    types: [ edited, opened, reopened ]
-
+    types: [ opened ]
 jobs:
-  issue-management:
+  move-issue-to-repository-project-column-on-pull-request:
+    name: Move issues to repository project column
     runs-on: ubuntu-latest
     steps:
-      - name: Issue management
-        uses: TorqIT/issue-management-action@v2
+      - name: Move all issues related to current PR(into main branch) and child PRs to 'Done' column
+        uses: fojia/action-move-issues-to-column@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # Project number. Can be found in the URL of your project (i.e. https://github.com/orgs/<your-org>/projects/<project-number>)
-          projectNumber: 2
-          # Optional comma-separated list of tester usernames
-          testers: alisevych
+          project: 'UTBotJava-1'
+          column: 'In Progress'
+          owner: 'alisevych'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
