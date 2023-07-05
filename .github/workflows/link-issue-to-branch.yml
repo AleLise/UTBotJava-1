@@ -16,4 +16,4 @@ jobs:
           owner: 'AleLise'
           repo: 'UTBotJava-1'
           type: 'org'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GHPROJECT_TOKEN }}
