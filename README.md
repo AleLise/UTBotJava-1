@@ -1,6 +1,7 @@
 [![UnitTestBot: build and run tests](https://github.com/UnitTestBot/UTBotJava/actions/workflows/build-and-run-tests.yml/badge.svg)](https://github.com/UnitTestBot/UTBotJava/actions/workflows/build-and-run-tests.yml)
 [![Plugin and CLI: publish as archives](https://github.com/UnitTestBot/UTBotJava/actions/workflows/publish-plugin-and-cli.yml/badge.svg)](https://github.com/UnitTestBot/UTBotJava/actions/workflows/publish-plugin-and-cli.yml)
 
+
 👉 Find UnitTestBot on [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/19445-unittestbot).
 
 👉 Visit the [official UnitTestBot website](https://www.utbot.org/).
