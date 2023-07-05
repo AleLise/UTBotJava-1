@@ -32,4 +32,4 @@ jobs:
       with:
           project-url: https://github.com/orgs/AleLise/projects/2
           column: In Progress
-          github-token: ${{ secrets.GA_ACCESS_TOKEN }}
+          repo-token: ${{ secrets.GA_ACCESS_TOKEN }}
