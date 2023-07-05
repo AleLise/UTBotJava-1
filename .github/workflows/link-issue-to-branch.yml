@@ -2,7 +2,6 @@ name: Move issues to In progress status when it is linked to a branch
 on:
   pull_request:
     types: [ opened ]
-    
 jobs:
   move-issue-to-repository-project-column-on-pull-request:
     name: Move issues to repository project column
