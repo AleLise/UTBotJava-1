@@ -35,5 +35,5 @@ jobs:
       with:
           project-url: https://github.com/orgs/AleLise/projects/2
           column: In Progress
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
