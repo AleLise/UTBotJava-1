@@ -1,35 +1,18 @@
 name: Move issues to In progress status when it is linked to a branch
 on:
-  pull_request_target:
-    types: [ edited, synchronize, opened, reopened ]
+  pull_request:
+    types: [ opened ]
 jobs:
-  checker:
+  move-issue-to-repository-project-column-on-pull-request:
+    name: Move issues to repository project column
     runs-on: ubuntu-latest
     steps:
-    - name: Find linked issues
-      id: find-linked-issues
-      uses: Ismoh-Games/find-linked-issues@v0.0.12
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ${{ github.repository }}
-        pull-request-number: ${{ github.event.pull_request.number }}
-        pull-request-body: ${{ github.event.pull_request.body }}
-        copy-issues-labels: true # optional
-        include-closed-issues: true # optional
-    
-    - name: Use the output
-      run: |
-        echo "is-pull-request-linked-to-issues: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues }}"
-        echo "linked-issues: ${{ steps.find-linked-issues.outputs.linked-issues }}"
-        echo "pull-request-labels: ${{ steps.find-linked-issues.outputs.pull-request-labels }}"
-        
-    - name: Move linked issues to In Progress
-      if: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues == 'True' }}
-      uses: alex-page/github-project-automation-plus@v0.8.3
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUENUM: ${{steps.find-linked-issues.outputs.linked-issues[0] }}
-      with:
-          project-url: https://github.com/orgs/AleLise/projects/2
-          column: In Progress
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Move all issues related to current PR(into main branch) and child PRs to 'In Progress' column
+        uses: fojia/action-move-issues-to-column@master
+        with:
+          project: 'UTBotJava-1'
+          column: 'In Progress'
+          owner: 'AleLise'
+          repo: 'UTBotJava-1'
+          type: 'org'
+          github_token: ${{ secrets.GA_ACCESS_TOKEN }}
