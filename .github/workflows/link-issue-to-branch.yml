@@ -32,9 +32,9 @@ jobs:
       if: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues == 'True' }}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        project-owner: 'AleLise'
+        project-owner: 'alisevych'
         project-number: 2
-        issue-repository: 'AleLise/UTBotJava-1'
+        issue-repository: 'alisevych/UTBotJava-1'
         issue-number:  ${{ steps.find-linked-issues.outputs.linked-issues[0] }}
 
     - name: Move Item to In Progress
