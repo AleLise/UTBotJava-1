@@ -29,7 +29,7 @@ jobs:
 
     - name: Move linked issues to In Progress
       if: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues == 'True' }}
-      uses: alex-page/github-project-automation-plus@v0.8.3
+      uses: alex-page/github-project-automation-plus@v0.8.3 
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUENUM: ${{steps.find-linked-issues.outputs.linked-issues[0].number }}
