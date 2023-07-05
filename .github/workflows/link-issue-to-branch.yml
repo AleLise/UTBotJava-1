@@ -1,15 +1,14 @@
 name: Move issues to In progress status when it is linked to a branch
-
-name: Move new issues into Project Board Column
 on:
   pull_request:
     types: [ opened ]
+    
 jobs:
   move-issue-to-repository-project-column-on-pull-request:
     name: Move issues to repository project column
     runs-on: ubuntu-latest
     steps:
-      - name: Move all issues related to current PR(into main branch) and child PRs to 'Done' column
+      - name: Move all issues related to current PR(into main branch) and child PRs to 'In Progress' column
         uses: fojia/action-move-issues-to-column@master
         with:
           project: 'UTBotJava-1'
