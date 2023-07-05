@@ -15,4 +15,5 @@ jobs:
           column: 'In Progress'
           owner: 'AleLise'
           repo: 'UTBotJava-1'
+          type: 'org'
           github_token: ${{ secrets.GITHUB_TOKEN }}
