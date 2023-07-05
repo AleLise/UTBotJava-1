@@ -20,18 +20,27 @@ jobs:
         copy-issues-labels: true # optional
         include-closed-issues: true # optional
     
-    # Use the output from the `find-linked-issues` step
     - name: Use the output
       run: |
         echo "is-pull-request-linked-to-issues: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues }}"
         echo "linked-issues: ${{ steps.find-linked-issues.outputs.linked-issues }}"
         echo "pull-request-labels: ${{ steps.find-linked-issues.outputs.pull-request-labels }}"
-
-    - name: Move linked issues to In Progress
+        
+    - name: Find Item Id in the Project
+      id: find-item-id
+      uses: monry/actions-get-project-item-id@v2
       if: ${{ steps.find-linked-issues.outputs.is-pull-request-linked-to-issues == 'True' }}
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        project-owner: "AleLise"
+        project-number: 2
+        issue-repository: 'AleLise/UTBotJava-1'
+        issue-number:  ${{ steps.find-linked-issues.outputs.linked-issues[0] }}
+
+    - name: Move Item to In Progress
+      id: move-item-to-in-progress
+      if: ${{ steps.find-item-id.outputs.project-item-id }}
       uses: alex-page/github-project-automation-plus@v0.8.3
-      env:
-          ISSUENUM: ${{ steps.find-linked-issues.outputs.linked-issues[0] }}
       with:
           project-url: https://github.com/orgs/AleLise/projects/2
           column: In Progress
