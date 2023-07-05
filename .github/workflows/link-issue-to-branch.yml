@@ -1,8 +1,8 @@
 name: Move issues to In progress status when it is linked to a branch
 
 on:
-  pull_request_target:
-    types: [ edited, synchronize, opened, reopened ]
+  pull_request:
+    types: [ edited, opened, reopened ]
 
 jobs:
   issue-management:
