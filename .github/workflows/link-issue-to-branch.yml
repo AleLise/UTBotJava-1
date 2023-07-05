@@ -13,7 +13,7 @@ jobs:
         with:
           project: 'UTBotJava-1'
           column: 'In Progress'
-          owner: 'AleLise'
+          owner: 'alisevych'
           repo: 'UTBotJava-1'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
